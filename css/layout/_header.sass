@@ -1,0 +1,21 @@
+.header
+    opacity: 0
+    position: relative
+    width: 100%
+    height: 80vh
+    +flex(center, center, row nowrap)
+    animation: fadeIn 500ms ease-in 500ms 1 normal forwards 
+    figure
+        width: 80%
+        height: 50%
+        +flex(center, center, row nowrap)
+    figcaption
+        width: 100%
+        height: 100%
+        padding: 1rem
+        background: rgba($color_primary, .25)
+        +flex(center,center,row nowrap)
+        h1
+            max-width: 30rem
+            text-align: center
+            font-weight: 100

@@ -1,0 +1,28 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    scroll-behavior: smooth
+    font-family: 'PT Sans', roboto, sans-serif
+
+html::-webkit-scrollbar
+    width: 0
+    background: transparent
+    font-size: 62.8%
+
+html
+    scroll-behavior: smooth
+    width: 100%
+    color: $black_1
+    +flex(center, center, column nowrap)
+body
+    position: relative
+    scroll-behavior: smooth
+    width: 100%
+    max-width: 1440px
+    +flex(center, center, column nowrap)
+    background: $white
+    &>*
+        width: 100%
+    .header, .main
+        margin-bottom: 4rem
