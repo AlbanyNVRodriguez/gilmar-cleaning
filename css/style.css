@@ -198,6 +198,8 @@ body .header, body .main {
           flex-flow: row wrap;
   gap: .5rem;
   z-index: 10;
+  -webkit-box-shadow: 1px 2px 3px rgba(45, 45, 45, 0.3);
+          box-shadow: 1px 2px 3px rgba(45, 45, 45, 0.3);
   background: #f1f1f1;
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
@@ -245,7 +247,7 @@ body .header, body .main {
 }
 
 .nav-links a {
-  font-size: 1rem;
+  font-size: .8rem;
   margin: .5rem .3rem;
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
@@ -1069,7 +1071,7 @@ body .header, body .main {
   text-align: center;
 }
 
-@media screen and (min-width: 440px) {
+@media screen and (min-width: 550px) {
   .navbar {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
@@ -1078,6 +1080,9 @@ body .header, body .main {
 }
 
 @media screen and (min-width: 635px) {
+  .nav-links a {
+    font-size: 1.2rem;
+  }
   .header figure {
     width: 50%;
     height: 50%;
