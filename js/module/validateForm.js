@@ -13,7 +13,8 @@ export default function validateForm($form){
         `<img src="./img/loader.svg" alt="loader"><p>Sending...</p>`;
         $form.querySelector(".loader").classList.remove("hidden");
 
-        sendForm($form, { name, email, phone, service, address, message });
+        // sendForm($form, { name, email, phone, service, address, message });
+        sendFetch($form, { name, email, phone, service, address, message });
     }else{
         name ? $form.name.classList.remove("error") : $form.name.classList.add("error");
         email ? $form.email.classList.remove("error") : $form.email.classList.add("error");
@@ -66,11 +67,12 @@ function sendForm($form, dates){
         formData.append("message", dates.message);
 
     let XHR = new XMLHttpRequest();
-    XHR.open("POST", "./assets/send_mail - copia.php");
+    XHR.open("POST", "./assets/send_mail.php");
     XHR.addEventListener("readystatechange", function(){
         if(XHR.readyState !== 4) return;
         if(XHR.status >= 200 && XHR.status <300){
             let res = JSON.parse(XHR.responseText);
+            console.log("correcto", res)
             $form.querySelector(".loader").innerHTML = 
             `<img src="./img/ico - sendEmail.png" alt="send..."><p>${res.message}</p>`;
             setTimeout(function(){
@@ -87,4 +89,31 @@ function sendForm($form, dates){
         }
     });
     XHR.send(formData)
+}
+// SEND FORM
+const sendFetch = async ($form, dates) => {
+    let formData = new FormData();
+        formData.append("name", dates.name);
+        formData.append("email", dates.email);
+        formData.append("phone", dates.phone);
+        formData.append("service", dates.service);
+        formData.append("address", dates.address);
+        formData.append("message", dates.message);
+
+    let res = await fetch("./assets/send_mail.php", {method: "POST", body: formData});
+    let json = await res.json();
+
+    if(res.ok){
+        $form.querySelector(".loader").innerHTML = `<img src="./img/ico - sendEmail.png" alt="send..."><p>${json.message}</p>`;
+        setTimeout(function(){
+            $form.querySelector(".loader").classList.add("hidden");
+        }, 3000);
+        $form.reset();
+    }else{
+        $form.querySelector(".loader").innerHTML = `
+        <img src="./img/ico - error.png" alt="error..."><p>${json.message}</p>`;
+        setTimeout(function(){
+            $form.querySelector(".loader").classList.add("hidden");
+        }, 3000);
+    }
 }

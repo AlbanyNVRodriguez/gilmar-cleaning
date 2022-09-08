@@ -46,17 +46,17 @@
             //Server settings
             $mail->SMTPDebug = 0;                      //Enable verbose debug output
             $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'smtp.titan.email';                     //Set the SMTP server to send through
+            $mail->Host       = 'ssl://smtp.titan.email';                     //Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'admin@maintegralservice.com';                     //SMTP username
-            $mail->Password   = 'fortuna68';                               //SMTP password
+            $mail->Username   = 'admin@gilmarcleaning3.com';                     //SMTP username
+            $mail->Password   = 'GCperdomo';                               //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
             //Recipients
-            $mail->setFrom('admin@maintegralservice.com', "Integral Service");
-            $mail->addAddress('admin@maintegralservice.com');     //Add a recipient
-            $mail->addReplyTo('no-reply@maintegralservice.com', "Integral Service");
+            $mail->setFrom('admin@gilmarcleaning3.com', "Gilmar Cleaning");
+            $mail->addAddress('admin@gilmarcleaning3.com');     //Add a recipient
+            $mail->addReplyTo('no-reply@gilmarcleaning3.com', "Gilmar Cleaning");
     
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
